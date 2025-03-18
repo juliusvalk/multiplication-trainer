@@ -84,10 +84,11 @@ function MultiplicationTrainer() {
       <p className="text-lg">{displayProblem}</p>
       <input
         value={userAnswer}
+        type="number"
         onChange={(e) => setUserAnswer(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
         className="p-2 border rounded-lg"
-        min="0" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number"
+        min="0" inputmode="numeric" pattern="[0-9]*" title="Number"
       />
       <button onClick={handleSubmit}>Submit</button>
     </div>
