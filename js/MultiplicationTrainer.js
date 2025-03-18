@@ -1,14 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
-
-export default function MultiplicationTrainer() {
-  const [numProblems, setNumProblems] = useState(0);
-  const [problems, setProblems] = useState([]);
-  const [currentProblem, setCurrentProblem] = useState(null);
-  const [userAnswer, setUserAnswer] = useState('');
-  const [correctCount, setCorrectCount] = useState(0);
-  const [startTime, setStartTime] = useState(null);
-  const [timeTaken, setTimeTaken] = useState(0);
+function MultiplicationTrainer() {
+  const [numProblems, setNumProblems] = React.useState(0);
+  const [problems, setProblems] = React.useState([]);
+  const [currentProblem, setCurrentProblem] = React.useState(null);
+  const [userAnswer, setUserAnswer] = React.useState('');
+  const [correctCount, setCorrectCount] = React.useState(0);
+  const [startTime, setStartTime] = React.useState(null);
+  const [timeTaken, setTimeTaken] = React.useState(0);
 
   const generateProblem = () => {
     const a = Math.floor(Math.random() * 12) + 1;
@@ -53,9 +50,9 @@ export default function MultiplicationTrainer() {
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-2xl font-bold">Multiplication Trainer</h1>
         {[10, 20, 50, 100].map((count) => (
-          <Button key={count} onClick={() => startGame(count)}>
+          <button key={count} onClick={() => startGame(count)}>
             {count} Problems
-          </Button>
+          </button>
         ))}
       </div>
     );
@@ -68,7 +65,7 @@ export default function MultiplicationTrainer() {
         <p>Correct Answers: {correctCount}/{numProblems}</p>
         <p>Total Time: {(timeTaken / 1000).toFixed(2)} seconds</p>
         <p>Average Time per Problem: {(timeTaken / numProblems / 1000).toFixed(2)} seconds</p>
-        <Button onClick={() => setNumProblems(0)}>Restart</Button>
+        <button onClick={() => setNumProblems(0)}>Restart</button>
       </div>
     );
   }
@@ -92,7 +89,9 @@ export default function MultiplicationTrainer() {
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
         className="p-2 border rounded-lg"
       />
-      <Button onClick={handleSubmit}>Submit</Button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
-} 
+}
+
+window.MultiplicationTrainer = MultiplicationTrainer; // Attach to the global object
