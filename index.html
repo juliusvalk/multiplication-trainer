@@ -15,7 +15,10 @@
   <!-- Babel for JSX transformation -->
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-  <!-- Main React App -->
-  <script type="text/babel" src="js/main.js"></script>
+  <!-- Attach React Component to DOM -->
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<MultiplicationTrainer />);
+  </script>
 </body>
 </html>
