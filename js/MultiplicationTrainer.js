@@ -83,11 +83,11 @@ function MultiplicationTrainer() {
       <h2 className="text-xl font-bold">Solve:</h2>
       <p className="text-lg">{displayProblem}</p>
       <input
-        type="number"
         value={userAnswer}
         onChange={(e) => setUserAnswer(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
         className="p-2 border rounded-lg"
+        min="0" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number"
       />
       <button onClick={handleSubmit}>Submit</button>
     </div>
