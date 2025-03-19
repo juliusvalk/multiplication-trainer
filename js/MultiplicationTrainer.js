@@ -6,6 +6,7 @@ function MultiplicationTrainer() {
   const [correctCount, setCorrectCount] = React.useState(0);
   const [startTime, setStartTime] = React.useState(null);
   const [timeTaken, setTimeTaken] = React.useState(0);
+  const inputRef = React.useRef(null);
 
   const generateProblem = () => {
     const a = Math.floor(Math.random() * 12) + 1;
@@ -37,12 +38,14 @@ function MultiplicationTrainer() {
     if (problems.length > 1) {
       setProblems(problems.slice(1));
       setCurrentProblem(problems[1]);
+      inputRef.current.focus();
     } else {
       setTimeTaken(Date.now() - startTime);
       setCurrentProblem(null);
     }
 
     setUserAnswer('');
+    
   };
 
   if (!numProblems) {
@@ -83,6 +86,7 @@ function MultiplicationTrainer() {
       <h2 className="text-xl font-bold">Solve:</h2>
       <p className="text-lg">{displayProblem}</p>
       <input
+        ref={inputRef}
         value={userAnswer}
         type="number"
         onChange={(e) => setUserAnswer(e.target.value)}
