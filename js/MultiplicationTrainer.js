@@ -53,7 +53,7 @@ function MultiplicationTrainer() {
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-2xl font-bold">Multiplication Trainer</h1>
         {[10, 20, 50, 100].map((count) => (
-          <button key={count} onClick={() => startGame(count)}>
+          <button className="bg-gray-400 text-white rounded-xl p-2 hover:text-gray-200 font-bold" key={count} onClick={() => startGame(count)}>
             {count} Problems
           </button>
         ))}
@@ -68,7 +68,7 @@ function MultiplicationTrainer() {
         <p>Correct Answers: {correctCount}/{numProblems}</p>
         <p>Total Time: {(timeTaken / 1000).toFixed(2)} seconds</p>
         <p>Average Time per Problem: {(timeTaken / numProblems / 1000).toFixed(2)} seconds</p>
-        <button onClick={() => setNumProblems(0)}>Restart</button>
+        <button onClick={() => setNumProblems(0)} className="bg-gray-400 text-white rounded-xl p-2 hover:text-gray-200 font-bold">Restart</button>
       </div>
     );
   }
@@ -94,7 +94,7 @@ function MultiplicationTrainer() {
         className="p-2 border rounded-lg"
         min="0" inputmode="numeric" pattern="[0-9]*" title="Number"
       />
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="bg-gray-400 text-white rounded-xl p-2 hover:text-gray-200 font-bold" onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
