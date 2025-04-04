@@ -83,7 +83,8 @@ function MultiplicationTrainer() {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <h2 className="text-xl font-bold">Left: {problems.length}. Solve:</h2>
+      <h2 className="text-xl font">Left: {problems.length}</h2>
+      <p className="text font">Errors: {numProblems - correctCount - problems.length}</p>
       <p className="text-lg">{displayProblem}</p>
       <input
         ref={inputRef}
